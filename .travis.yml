@@ -38,6 +38,7 @@ script:
   - git clone https://github.com/iamantony/qtcsv.git
   - qmake -r
   - make
+  - cp ./qtcsv/src/libqtcsv.so* ./example
   - ./example/example
 
 notifications:
