@@ -38,7 +38,7 @@ script:
   - git clone https://github.com/iamantony/qtcsv.git
   - qmake -r
   - make
-  - ./qtcsv-example
+  - ./example/qtcsv-example
 
 notifications:
   email: false
