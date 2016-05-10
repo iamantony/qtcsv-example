@@ -16,7 +16,7 @@ Build and run:
 ``` bash
 make
 cd example
-qtcsv-example
+./qtcsv-example
 ```
 
 Tested on Ubuntu 14.04 64bit with Qt 4.8.6 and higher.
