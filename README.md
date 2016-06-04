@@ -8,16 +8,16 @@ In [main.cpp][main-file] file you will see code that write and read csv-file.
 
 ## How to download project
 1. Download zip-archive with project files from GitHub
-2. Clone this repository using _**git clone**_ command:
+2. Or clone this repository using _**git clone**_ command:
 
   ``` bash
   git clone https://github.com/iamantony/qtcsv-example.git
   git submodule update --init --recursive
   ```
 
-## Build and run:
+## Build and run
 1. Open this project in QtCreator and start build and run operations in it 
-2. Run this commands in console:
+2. Or run this commands in console:
 
   ``` bash
   qmake -r
