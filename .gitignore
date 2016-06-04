@@ -32,7 +32,6 @@ Makefile*
 
 # Files
 *.csv
-/qtcsv
 
 # Executable
 qtcsv-example
