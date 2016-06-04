@@ -1,24 +1,30 @@
 # qtcsv-example
-Example project that shows how to use [qtcsv][1] library:
-  * how to read csv-files
-  * how to write csv-files
+This is an example project that shows how to use [qtcsv][qtcsv] library.
 
-Don't forget to clone qtcsv library into it:
+In [main.cpp][main-file] file you will see code that write and read csv-file.
 
-``` bash
-git clone https://github.com/iamantony/qtcsv-example.git
-cd qtcsv-example
-git clone https://github.com/iamantony/qtcsv.git
-```
+## How to download project
+1. Download zip-archive with project files from GitHub
+2. Clone this repository using _**git clone**_ command:
 
-Build and run:
+  ``` bash
+  git clone https://github.com/iamantony/qtcsv-example.git
+  git submodule update --init --recursive
+  ```
 
-``` bash
-make
-cd example
-./qtcsv-example
-```
+## Build and run:
+1. Open this project in QtCreator and start build and run operations in it 
+2. Run this commands in console:
+
+  ``` bash
+  qmake -r
+  make
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/qtcsv/src
+  cd ./example
+  ./example
+  ```
 
 Tested on Ubuntu 14.04 64bit with Qt 4.8.6 and higher.
 
-[1]: https://github.com/iamantony/qtcsv
+[qtcsv]: https://github.com/iamantony/qtcsv
+[main-file]: https://github.com/iamantony/qtcsv-example/blob/master/example/main.cpp
