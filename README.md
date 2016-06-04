@@ -1,4 +1,7 @@
 # qtcsv-example
+
+[![Build Status](https://travis-ci.org/iamantony/qtcsv-example.svg?branch=dev)](https://travis-ci.org/iamantony/qtcsv-example)
+
 This is an example project that shows how to use [qtcsv][qtcsv] library.
 
 In [main.cpp][main-file] file you will see code that write and read csv-file.
