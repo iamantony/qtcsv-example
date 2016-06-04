@@ -34,5 +34,5 @@ Makefile*
 *.csv
 
 # Executable
-qtcsv-example
+example/example
 *.exe
