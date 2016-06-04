@@ -35,11 +35,12 @@ install:
   - if [ "$QT_BASE" = "56" ]; then sudo apt-get install -qq qt56base; source /opt/qt56/bin/qt56-env.sh; fi
 
 script:
-  - git clone https://github.com/iamantony/qtcsv.git
+  - git submodule update --init --recursive
   - qmake -r
   - make
-  - cp ./qtcsv/src/libqtcsv.so* ./example
-  - ./example/example
+  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/qtcsv/src
+  - cd ./example
+  - ./example
 
 notifications:
   email: false
