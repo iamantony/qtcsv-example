@@ -7,7 +7,7 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-unix|win32: LIBS += -L$$OUT_PWD/../qtcsv/src/ -lqtcsv
+unix|win32: LIBS += -L$$PWD/../qtcsv/src/ -lqtcsv
 INCLUDEPATH += $$PWD/../qtcsv/src/include
 DEPENDPATH += $$PWD/../qtcsv/src
 DESTDIR = $$PWD
