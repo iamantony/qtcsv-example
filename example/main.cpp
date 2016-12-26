@@ -4,9 +4,9 @@
 #include <QDir>
 #include <QDebug>
 
-#include "variantdata.h"
-#include "reader.h"
-#include "writer.h"
+#include "qtcsv/variantdata.h"
+#include "qtcsv/reader.h"
+#include "qtcsv/writer.h"
 
 int main()
 {
