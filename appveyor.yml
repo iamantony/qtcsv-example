@@ -29,12 +29,9 @@ build_script:
 - cd ./qtcsv
 - mingw32-make
 - ls -l
-- cd ./src
-- ls -l
-- cp ./qtcsv.dll ../../example
-- cd ../../example
+- cp ./qtcsv.dll ../example
+- cd ../example
 - ls -l
 - mingw32-make
 - ls -l
 - example.exe
-
