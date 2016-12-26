@@ -1,17 +1,25 @@
-QT       += core
-QT       -= gui
+QT += core
+QT -= gui
 
 TARGET = example
-CONFIG   += console
-CONFIG   -= app_bundle
+CONFIG += console
+CONFIG -= app_bundle
 
 TEMPLATE = app
 
-INCLUDEPATH += ../qtcsv/src/include
-LIBS += -lqtcsv
+unix|win32: LIBS += -L$$PWD/../qtcsv/ -lqtcsv
+INCLUDEPATH += $$PWD/../qtcsv/include
+#DEPENDPATH += $$PWD/../qtcsv/src
 
-unix {
-    LIBS += -L../qtcsv/src
+# DESTDIR specifies where to put the binary file
+CONFIG(release, debug|release): DESTDIR = $$PWD
+CONFIG(debug, debug|release): DESTDIR = $$PWD
+
+win32 {
+    install_it.path = $$OUT_PWD
+    install_it.files += $$OUT_PWD/../qtcsv/qtcsv.dll
+
+    INSTALLS += install_it
 }
 
 SOURCES += main.cpp
