@@ -26,9 +26,7 @@ before_build:
 build_script:
 - qmake -v
 - qmake -r
-- cd ./qtcsv
 - mingw32-make
-- cp ./qtcsv.dll ../example
-- cd ../example
-- mingw32-make
+- cp ./qtcsv/qtcsv.dll ./example
+- cd ./example
 - example.exe
