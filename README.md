@@ -35,11 +35,9 @@ Tested on:
   ### Windows
   ``` bash
   qmake -r
-  cd ./qtcsv
-  make
-  cp ./qtcsv.dll ../example
-  cd ../example
-  make
+  mingw32-make
+  cp ./qtcsv/qtcsv.dll ./example
+  cd ./example
   example.exe
   ```
 
