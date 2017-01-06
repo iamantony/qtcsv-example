@@ -111,9 +111,14 @@ install:
 
 script:
   - git submodule update --init --recursive
+  - qmake -v
   - qmake -r
   - make
-  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/qtcsv
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
+      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/qtcsv;
+    else
+      cp ./qtcsv/libqtcsv.* ./example
+    fi
   - cd ./example
   - ./example
 
