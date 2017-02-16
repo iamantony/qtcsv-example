@@ -9,7 +9,7 @@ In [main.cpp][main-file] file you will see code that write and read csv-file.
 Tested on:
 - Ubuntu 14.04 with gcc 4.8.4, Qt 4.8 and higher
 - Windows with MinGW, Qt 5.3 and higher
-- OS X with clang, Qt 5.5 and 5.7
+- OS X with clang, Qt 4.8, 5.5, 5.7 and higher
 
 ## How to download project
 1. Download zip-archive with project files from GitHub
