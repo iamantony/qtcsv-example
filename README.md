@@ -17,6 +17,7 @@ Tested on:
 
   ``` bash
   git clone https://github.com/iamantony/qtcsv-example.git
+  cd qtcsv-example
   git submodule update --init --recursive
   ```
 
