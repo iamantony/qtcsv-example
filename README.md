@@ -12,8 +12,9 @@ Tested on:
 - OS X with clang, Qt 4.8, 5.5, 5.7 and higher
 
 ## How to download project
-1. Download zip-archive with project files from GitHub
-2. Or clone this repository using _**git clone**_ command:
+
+- Download zip-archive with project files from GitHub
+- Or clone this repository using _**git clone**_ command:
 
   ``` bash
   git clone https://github.com/iamantony/qtcsv-example.git
@@ -22,35 +23,50 @@ Tested on:
   ```
 
 ## Build and run
-1. Open this project in QtCreator and start build and run operations in it 
-2. Or run this commands in console:
 
-  ### Linux
-  ``` bash
-  qmake -r
-  make
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/qtcsv
-  cd ./example
-  ./example
-  ```
+- Open this project in QtCreator and start build and run operations in it
+- Or run this commands in console:
+
+### Linux, OS X
   
-  ### Windows
-  ``` bash
-  qmake -r
-  mingw32-make
-  cp ./qtcsv/qtcsv.dll ./example
-  cd ./example
-  example.exe
-  ```
+#### Using qmake
   
-  ### OS X
-  ``` bash
-  qmake -r
-  make
-  cp ./qtcsv/libqtcsv.* ./example
-  cd ./example
-  ./example
-  ```
+``` bash
+cd /path/to/folder/with/qtcsv-example
+
+# Create build directory
+mkdir ./build
+cd ./build
+
+# Build qtcsv library and qtcsv-example binary. You can choose build type: release or debug
+qmake ../qtcsv-example.pro CONFIG+=[release|debug]
+make
+
+# Execute qtcsv-example
+cd ./example
+./qtcsv-example
+```
+
+### Windows
+
+#### Using qmake
+
+``` bash
+cd C:\path\to\folder\with\qtcsv-example
+
+# Create build directory
+mkdir .\build
+cd .\build
+
+# Build qtcsv library and qtcsv-example binary. You can choose build type: release or debug.
+# Set DESTDIR to current directory.
+qmake ..\qtcsv-example.pro CONFIG+=[release|debug] DESTDIR=%cd%
+mingw32-make
+
+cp ./qtcsv/qtcsv.dll ./example
+cd ./example
+example.exe
+```
 
 [qtcsv]: https://github.com/iamantony/qtcsv
 [main-file]: https://github.com/iamantony/qtcsv-example/blob/master/example/main.cpp
