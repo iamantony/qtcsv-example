@@ -222,9 +222,10 @@ script:
       fi
 
       make;
+      ls -lR;
     else
       qmake -v;
-      qmake ../qtcsv-example.pro CONFIG+=release;
+      qmake ../qtcsv-example.pro CONFIG+=release LIBS+=-L../qtcsv;
       make;
     fi
 
