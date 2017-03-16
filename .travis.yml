@@ -230,7 +230,6 @@ script:
 
   # Execute binary file
   - cd ./example
-  - ls -la
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/../qtcsv
   - ./example
 

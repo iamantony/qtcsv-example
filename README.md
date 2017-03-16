@@ -39,12 +39,13 @@ mkdir ./build
 cd ./build
 
 # Build qtcsv library and qtcsv-example binary. You can choose build type: release or debug
-qmake ../qtcsv-example.pro CONFIG+=[release|debug]
+qmake ../qtcsv-example.pro CONFIG+=[release|debug] LIBS+=-L../qtcsv
 make
 
 # Execute qtcsv-example
 cd ./example
-./qtcsv-example
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/../qtcsv
+./example
 ```
 
 ### Windows
