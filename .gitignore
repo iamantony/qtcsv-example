@@ -30,6 +30,9 @@ Makefile*
 *.qmlproject.user
 *.qmlproject.user.*
 
+# Build folder
+/build
+
 # Files
 *.csv
 
