@@ -50,7 +50,6 @@ build_script:
     qmake ..\qtcsv\qtcsv.pro CONFIG+=release DESTDIR=%cd% &&
     mingw32-make &&
     qmake ..\example\example.pro CONFIG+=release DESTDIR=%cd% &&
-    mingw32-make &&
-    dir /s)
+    mingw32-make)
 
 - example.exe
