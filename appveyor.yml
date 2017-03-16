@@ -47,10 +47,8 @@ build_script:
     cd .\example)
   else (
     qmake -v &&
-    qmake ..\qtcsv-example.pro CONFIG+=release DESTDIR=%cd% &&
+    qmake ..\qtcsv-example.pro CONFIG+=release LIBS+=-L../ DESTDIR=%cd% &&
     mingw32-make &&
     dir /s)
 
-- cp ./qtcsv/qtcsv.dll ./example
-- cd ./example
-- qtcsv-example.exe
+- example.exe
