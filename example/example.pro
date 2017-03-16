@@ -1,19 +1,27 @@
 QT += core
 QT -= gui
 
-TARGET = example
+TARGET = qtcsv-example
 CONFIG += console
 CONFIG -= app_bundle
-
 TEMPLATE = app
 
-unix|win32: LIBS += -L$$PWD/../qtcsv/ -lqtcsv
-INCLUDEPATH += $$PWD/../qtcsv/include
-#DEPENDPATH += $$PWD/../qtcsv/src
+!msvc {
+    # flags for gcc-like compiler
+    CONFIG += warn_on
+    QMAKE_CXXFLAGS_WARN_ON += -Werror -Wformat=2 -Wuninitialized -Winit-self \
+            -Wmissing-include-dirs -Wswitch-enum -Wundef -Wpointer-arith \
+            -Wdisabled-optimization -Wcast-align -Wcast-qual
+}
 
-# DESTDIR specifies where to put the binary file
-CONFIG(release, debug|release): DESTDIR = $$PWD
-CONFIG(debug, debug|release): DESTDIR = $$PWD
+# set where linker could find qtcsv library. By default we expect
+# that library is located in the same directory as the qtcsv_example binary.
+QTCSV_LOCATION = $$OUT_PWD
+LIBS += -L$$QTCSV_LOCATION -lqtcsv
+
+INCLUDEPATH += $$PWD/../qtcsv/include
+
+SOURCES += main.cpp
 
 win32 {
     install_it.path = $$OUT_PWD
@@ -21,5 +29,3 @@ win32 {
 
     INSTALLS += install_it
 }
-
-SOURCES += main.cpp
