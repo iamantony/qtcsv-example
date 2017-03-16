@@ -48,6 +48,25 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/../qtcsv
 ./example
 ```
 
+#### Using cmake
+
+``` bash
+cd /path/to/folder/with/qtcsv-example
+
+# Create build directory
+mkdir ./build
+cd ./build
+
+# Build qtcsv library and qtcsv-example binary. You can choose build type: release or debug
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF ..
+make
+
+# Execute qtcsv-example
+cd ./example
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/../qtcsv
+./example
+```
+
 ### Windows
 
 #### Using qmake
@@ -59,13 +78,34 @@ cd C:\path\to\folder\with\qtcsv-example
 mkdir .\build
 cd .\build
 
-# Build qtcsv library and qtcsv-example binary. You can choose build type: release or debug.
+# Build qtcsv library. You can choose build type: release or debug.
 # Set DESTDIR to current directory.
-qmake ..\qtcsv-example.pro CONFIG+=[release|debug] DESTDIR=%cd%
+qmake ..\qtcsv\qtcsv.pro CONFIG+=[release|debug] DESTDIR=%cd%
 mingw32-make
 
-cp ./qtcsv/qtcsv.dll ./example
-cd ./example
+# Build example binary.
+qmake ..\example\example.pro CONFIG+=release DESTDIR=%cd%
+mingw32-make
+
+example.exe
+```
+
+#### Using cmake
+
+``` bash
+cd C:\path\to\folder\with\qtcsv-example
+
+# Create build directory
+mkdir .\build
+cd .\build
+
+# Build qtcsv library and example binary. You can choose build type: release or debug.
+cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF ..
+mingw32-make
+
+copy ..\qtcsv\*qtcsv.dll .\example
+cd .\example
+
 example.exe
 ```
 
