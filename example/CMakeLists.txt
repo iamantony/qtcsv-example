@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.11)
 
-project (qtcsv_example)
+project (example)
 
 if(USE_QT4)
     find_package(Qt4 REQUIRED)

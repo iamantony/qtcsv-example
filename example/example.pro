@@ -1,7 +1,7 @@
 QT += core
 QT -= gui
 
-TARGET = qtcsv-example
+TARGET = example
 CONFIG += console
 CONFIG -= app_bundle
 TEMPLATE = app
@@ -32,3 +32,7 @@ win32 {
 
 DISTFILES += \
     CMakeLists.txt
+
+message(=== Configuration of example ===)
+message(Qt version: $$[QT_VERSION])
+message(example binary will be created in folder: $$OUT_PWD)
