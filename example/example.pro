@@ -29,3 +29,6 @@ win32 {
 
     INSTALLS += install_it
 }
+
+DISTFILES += \
+    CMakeLists.txt
