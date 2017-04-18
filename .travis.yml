@@ -166,8 +166,8 @@ install:
       else
         brew tap cartr/qt4;
         brew tap-pin cartr/qt4;
-        brew install qt;
-        brew link --force qt;
+        brew install qt@4;
+        brew link --force qt@4;
       fi
     fi
   - if [ "$QT_BASE" = "51" ]; then sudo apt-get install -qq qt51base; source /opt/qt51/bin/qt51-env.sh; fi
