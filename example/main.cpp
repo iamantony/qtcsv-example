@@ -8,8 +8,24 @@
 #include "qtcsv/reader.h"
 #include "qtcsv/writer.h"
 
+void WriteToFile(const QString& filePath);
+void ReadAndPrint(const QString& filePath);
+void ReadAndProcess(const QString& filePath);
+
 int main()
 {
+    QString filePath = QDir::currentPath() + "/info.csv";
+    WriteToFile(filePath);
+    ReadAndPrint(filePath);
+    ReadAndProcess(filePath);
+
+    return 0;
+}
+
+void WriteToFile(const QString& filePath)
+{
+    qDebug() << "=== Write to csv-file ==";
+
     QVariant first(2);
 
     QList<QVariant> second;
@@ -23,18 +39,58 @@ int main()
     varData.addEmptyRow();
     varData.addRow(fourth);
 
-    QString filePath = QDir::currentPath() + "/info.csv";
     if ( false == QtCSV::Writer::write(filePath, varData) )
     {
         qDebug() << "Failed to write to a file";
-        return 1;
     }
+
+    qDebug() << "... Write is OK";
+}
+
+void ReadAndPrint(const QString& filePath)
+{
+    qDebug() << "=== Read csv-file and print it content to terminal ==";
 
     QList<QStringList> readData = QtCSV::Reader::readToList(filePath);
     for ( int i = 0; i < readData.size(); ++i )
     {
         qDebug() << readData.at(i).join(",");
     }
+}
 
-    return 0;
+void ReadAndProcess(const QString& filePath)
+{
+    qDebug() << "=== Read csv-file and process it content ==";
+
+    // Create processor that revert elements in a row and save
+    // them into internal container
+    class RevertProcessor : public QtCSV::Reader::AbstractProcessor
+    {
+    public:
+        QList< QList<QString> > data;
+        virtual bool process(const QStringList& elements)
+        {
+            QList<QString> revertedElements;
+            for (int i = 0; i < elements.size(); ++i)
+            {
+                revertedElements.push_front(elements.at(i));
+            }
+
+            data.push_back(revertedElements);
+            return true;
+        }
+    };
+
+    RevertProcessor processor;
+    if (false == QtCSV::Reader::readToProcessor(filePath, processor))
+    {
+        qDebug() << "Failed to read file";
+        return;
+    }
+
+    // Print rows with reverted elements
+    for ( int i = 0; i < processor.data.size(); ++i )
+    {
+        qDebug() << processor.data.at(i).join(",");
+    }
 }
