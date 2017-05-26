@@ -67,7 +67,7 @@ void ReadAndProcess(const QString& filePath)
     class RevertProcessor : public QtCSV::Reader::AbstractProcessor
     {
     public:
-        QList< QList<QString> > data;
+        QList< QStringList > data;
         virtual bool process(const QStringList& elements)
         {
             QList<QString> revertedElements;
@@ -76,7 +76,7 @@ void ReadAndProcess(const QString& filePath)
                 revertedElements.push_front(elements.at(i));
             }
 
-            data.push_back(revertedElements);
+            data.push_back(QStringList(revertedElements));
             return true;
         }
     };
