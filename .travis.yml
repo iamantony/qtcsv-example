@@ -224,7 +224,12 @@ script:
       make;
     else
       qmake -v;
-      qmake ../qtcsv-example.pro CONFIG+=release LIBS+=-L../qtcsv;
+      if [ "$TRAVIS_OS_NAME" = "linux" ]; then
+        qmake ../qtcsv-example.pro CONFIG+=release LIBS+=-L../qtcsv;
+      else
+        qmake ../qtcsv-example.pro CONFIG+=release;
+      fi
+      
       make;
     fi
 
@@ -232,6 +237,7 @@ script:
   - ls -lR
   - cd ./example
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/../qtcsv
+  - echo $LD_LIBRARY_PATH
   - ./example
 
 notifications:
