@@ -1,6 +1,6 @@
 # qtcsv-example
 
-[![Build Status](https://travis-ci.org/iamantony/qtcsv-example.svg?branch=dev)](https://travis-ci.org/iamantony/qtcsv-example) [![Build status](https://ci.appveyor.com/api/projects/status/s1q16r12r2m4wk5k/branch/master?svg=true)](https://ci.appveyor.com/project/iamantony/qtcsv-example/branch/master)
+[![Build Status](https://travis-ci.org/iamantony/qtcsv-example.svg?branch=master)](https://travis-ci.org/iamantony/qtcsv-example) [![Build status](https://ci.appveyor.com/api/projects/status/s1q16r12r2m4wk5k/branch/master?svg=true)](https://ci.appveyor.com/project/iamantony/qtcsv-example/branch/master)
 
 This is an example project that shows how to use [qtcsv][qtcsv] library.
 
