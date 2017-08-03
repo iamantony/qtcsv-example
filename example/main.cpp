@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include <QVariant>
 #include <QList>
 #include <QStringList>
@@ -62,19 +64,26 @@ void ReadAndProcess(const QString& filePath)
 {
     qDebug() << "=== Read csv-file and process it content ==";
 
-    // Create processor that revert elements in a row and save
-    // them into internal container
+    // Create processor that:
+    // - replate empty lines by some data
+    // - revert elements in a row and save them into internal container
     class RevertProcessor : public QtCSV::Reader::AbstractProcessor
     {
     public:
         QList< QStringList > data;
-        virtual bool process(const QStringList& elements)
+
+        virtual void preProcessRawLine(QString& line)
         {
-            QList<QString> revertedElements;
-            for (int i = 0; i < elements.size(); ++i)
+            if (line.isEmpty())
             {
-                revertedElements.push_front(elements.at(i));
+                line = "Say 'No' to empty lines!";
             }
+        }
+
+        virtual bool processRowElements(const QStringList& elements)
+        {
+            QList<QString> revertedElements(elements);
+            std::reverse(revertedElements.begin(), revertedElements.end());
 
             data.push_back(QStringList(revertedElements));
             return true;
