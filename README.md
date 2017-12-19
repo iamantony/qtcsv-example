@@ -9,7 +9,7 @@ In [main.cpp][main-file] file you will see code that write and read csv-file.
 Tested on:
 - Ubuntu 14.04 with gcc 4.8.4, Qt 4.8 and higher
 - Windows with MinGW, Qt 5.3 and higher
-- OS X with clang, Qt 4.8, 5.5, 5.7 and higher
+- macOS with clang, Qt 4.8, 5.5, 5.7 and higher
 
 ## How to download project
 
@@ -27,7 +27,7 @@ Tested on:
 - Open this project in QtCreator and start build and run operations in it
 - Or run this commands in console:
 
-### Linux, OS X
+### Linux, macOS
   
 #### Using qmake
   
@@ -44,7 +44,10 @@ make
 
 # Execute qtcsv-example
 cd ./example
+
+# On macOS use DYLD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/../qtcsv
+
 ./example
 ```
 
@@ -63,7 +66,10 @@ make
 
 # Execute qtcsv-example
 cd ./example
+
+# On macOS use DYLD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/../qtcsv
+
 ./example
 ```
 
